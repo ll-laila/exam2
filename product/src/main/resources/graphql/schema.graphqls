@@ -1,0 +1,12 @@
+type Product {
+    id: ID!
+    sku: String!
+    barcode: String!
+    name: String!
+    price: Float!
+}
+
+type Query {
+    product(id: ID!): Product
+    allProducts: [Product]
+}

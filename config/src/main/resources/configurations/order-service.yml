@@ -1,0 +1,20 @@
+server:
+  port: 8093
+spring:
+  data:
+    mongodb:
+      uri: mongodb://localhost:27017/ordersdb
+
+  kafka:
+    producer:
+      bootstrap-servers: localhost:9092
+      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+      value-serializer: org.springframework.kafka.support.serializer.JsonSerializer
+      properties:
+        spring.json.type.mapping: OrderNotification:com.example.order.kafka.OrderNotification
+
+
+application:
+  config:
+    users-url: http://client-service/graphql
+    products-url: http://product-service/graphql
